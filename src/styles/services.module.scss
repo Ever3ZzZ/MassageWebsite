@@ -1,155 +1,143 @@
-.servicesContainer {
-  width: 100%;
-  padding: 40px 20px;
-  box-sizing: border-box;
+.services {
+  padding: 90px 0;
+  background: #fffaf7;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .title {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+  font-size: 42px;
+  margin-bottom: 8px;
 }
 
 .subtitle {
   text-align: center;
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 40px;
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 50px;
 }
 
-.servicesGrid {
+/* GRID */
+.grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  padding: 0 20px;
-  max-width: 1400px;
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 26px;
 }
 
-.serviceCard {
-  position: relative;
-  border-radius: 12px;
+/* CARD */
+.card {
+  background: #fff;
+  border-radius: 16px;
+  border: 2px solid #eee;
   overflow: hidden;
-  min-height: 320px;
-  display: flex;
-  align-items: flex-end;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* видео как фон внутри карточки */
-.cardVideo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* затемняющий слой поверх видео/фото */
-.serviceCard::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: 1;
-}
-
-/* для карточек с фото вместо видео */
-.imageCard {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  &::after {
-    background: rgba(0, 0, 0, 0.45);
-    z-index: 1;
-  }
-
-  .bookButton {
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
-  }
-
-  .bookButton:hover {
-    background: rgba(255, 255, 255, 0.25);
-  }
-}
-
-.cardContent {
-  position: relative;
-  z-index: 2;
-  color: #fff;
-  padding: 24px;
-  width: 100%;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  min-height: 550px;
+  padding: 0;
 }
 
-.cardContent h3 {
-  font-size: 1.5rem;
-  margin: 0 0 8px 0;
-  color: #fff;
+/* IMAGE */
+.imageWrap {
+  position: relative;
+  height: 170px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 }
 
-.cardContent p {
-  color: #fff;
-  line-height: 1.6;
-  margin-bottom: 16px;
-  flex-grow: 1;
+.icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CONTENT */
+.content {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.content h3 {
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .duration {
-  font-weight: 600;
-  color: #ffd59e;
-  margin-bottom: 12px;
-  font-size: 0.95rem;
+  font-size: 12px;
+  color: #c46a5e;
 }
 
 .description {
-  font-size: 0.95rem;
+  font-size: 13px;
+  line-height: 1.5;
+  opacity: 0.75;
+}
+
+/* WARNING */
+.warning {
+  min-height: 56px;
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
   line-height: 1.4;
-  margin-bottom: 12px;
-  opacity: 0.95;
-  max-height: 4.2em;
-  overflow: hidden;
+  padding: 10px;
+  border-radius: 8px;
+  background: #fff6e8;
+  border: 1px solid #f2c97d;
+  color: #8a5a00;
+
+  svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
 }
 
-.bookButton {
-  align-self: start;
-  background: #007bff;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 6px;
-  font-size: 1rem;
+/* ACTIONS */
+.actions {
+  display: grid;
+  gap: 8px;
+  margin-top: auto; // ← ВОТ ЭТО ФИКСИТ ВСЁ
+}
+
+.book,
+.gift {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 13px;
   cursor: pointer;
-  transition: background 0.3s ease;
 }
 
-.bookButton:hover {
-  background: #0056b3;
+.book {
+  background: #fff;
+  border: 1px solid #d4a574;
+  color: #d4a574;
 }
 
-.serviceCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* Адаптация для мобильных */
-@media (max-width: 1024px) {
-  .servicesGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .servicesGrid {
-    grid-template-columns: 1fr;
-  }
+.gift {
+  background: #fff4f4;
+  border: 1px solid #e3b2a8;
+  color: #b96f66;
 }
